@@ -15,19 +15,20 @@ def get_user_info(user_id):
     return response.json()
 
 def get_followers(user_id):
-    url = f'{API_URL}users.getFollowers?user_id={user_id}&access_token={ACCESS_TOKEN}&v=5.131'
+    url = f'{API_URL}users.getFollowers?user_id={user_id}&access_token={ACCESS_TOKEN}&v=5.131&extended=1&fields=screen_name'
     response = requests.get(url)
     return response.json()
 
 def get_subscriptions(user_id):
-    url = f'{API_URL}users.getSubscriptions?user_id={user_id}&access_token={ACCESS_TOKEN}&v=5.131'
+    url = f'{API_URL}users.getSubscriptions?user_id={user_id}&access_token={ACCESS_TOKEN}&v=5.131&extended=1&fields=screen_name'
     response = requests.get(url)
     return response.json()
 
 def get_groups(user_id):
-    url = f'{API_URL}groups.get?user_id={user_id}&access_token={ACCESS_TOKEN}&v=5.131'
+    url = f'{API_URL}groups.get?user_id={user_id}&access_token={ACCESS_TOKEN}&v=5.131&extended=1&fields=screen_name'
     response = requests.get(url)
     return response.json()
+
 
 def save_to_json(data, file_path):
     with open(file_path, 'w', encoding='utf-8') as f:
